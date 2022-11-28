@@ -10,22 +10,14 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *dog, *cat;
+	listint_t *slow = list, *fast = list;
 
-	if (list == NULL || list->next == NULL)
-		return (0);
-	
-	dog = list->next;
-	cat = list->next->next;
-
-	while (dog && cat && cat->next)
+	while (slow != NULL && fast != NULL && fast->next != NULL)
 	{
-		if (dog == cat)
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
 			return (1);
-
-		dog = dog->next;
-		cat = cat->next;
 	}
-
 	return (0);
 }
