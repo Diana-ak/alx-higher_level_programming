@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-for i in range(ord('a'), ord('z') + 1):
-     if chr(i) == 'e' or chr(i) == 'q':
+for letter in range(97, 123):
+     if letter == 101 or letter == 113:
          continue
      else:
-         print("{:s}".format(chr(i)), end="")
+         print("{}".format(chr(letter)), end="")
