@@ -4,6 +4,16 @@ from __future__ import print_function
 import sys
 
 def safe_function(fct, *args):
+    """ Executes a function safetly.
+
+    Args:
+        fct: Function to execute
+        args: arguemnts in teh function.
+    Return:
+        none on failure
+        result of function.
+    """
+
     try:
         res = fct(*args)
     except Exception as e:
