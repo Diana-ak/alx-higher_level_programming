@@ -21,7 +21,7 @@ class Square:
             """Get/set the current size of the square."""
             return (self.__size)
 
-        @property setter
+        @size.setter
         def size(self, value):
            if not isinstance(value, int):
                raise TypeError("size must be an integer")
@@ -34,7 +34,7 @@ class Square:
             """Get/set the current position of the square."""
             return (self.__position)
 
-        @property setter
+        @position.setter
         def position(self, value):
             if (not isinstance(value, tuple) or
                     len(value) != 2 or
