@@ -2,6 +2,7 @@
 
 """Define classes for a singly-linked list."""
 
+
 class Node:
     """Represent a node in a singly-linked list."""
 
@@ -68,6 +69,7 @@ class SinglyLinkedList:
                     tmp = tmp.next_node
                 new.next_node = tmp.next_node
                 tmp.next_node = new
+
         def __str__(self):
             """Define the print() representation of a SinglyLinkedList."""
             values = []
