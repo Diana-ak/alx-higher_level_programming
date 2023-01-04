@@ -15,7 +15,7 @@ Attributes:
 
 Solutions are represented in the format [[r, c], [r, c], [r, c], [r, c]]
 where `r` and `c` represent the row and column, respectively, where a
-queen must be placed on the chessboard.
+queen must be placed on the chessboard
 """
 import sys
 
@@ -34,6 +34,7 @@ def board_deepcopy(board):
         return list(map(board_deepcopy, board))
     return (board)
 
+
 def get_solution(board):
     """Return the list of lists representation of a solved chessboard."""
     solution = []
@@ -42,7 +43,7 @@ def get_solution(board):
             if board[r][c] == "Q":
                 solution.append([r, c])
                 break
-    return (solution)
+        return (solution)
 
 
 def xout(board, row, col):
@@ -107,7 +108,7 @@ def recursive_solve(board, row, queens, solutions):
         queens (int): The current number of placed queens.
         solutions (list): A list of lists of solutions.
     Returns:
-        solutions
+        solution
     """
     if queens == len(board):
         solutions.append(get_solution(board))
@@ -118,8 +119,8 @@ def recursive_solve(board, row, queens, solutions):
             tmp_board = board_deepcopy(board)
             tmp_board[row][c] = "Q"
             xout(tmp_board, row, c)
-            solutions = recursive_solve(tmp_board, row + 1,
-                                        queens + 1, solutions)
+            solutions = recursive_solve(tmp_board, row + 1, queens + 1, solutions)
+
     return (solutions)
 
 
@@ -138,3 +139,4 @@ if __name__ == "__main__":
     solutions = recursive_solve(board, 0, 0, [])
     for sol in solutions:
         print(sol)
+
