@@ -34,7 +34,6 @@ def board_deepcopy(board):
         return list(map(board_deepcopy, board))
     return (board)
 
-
 def get_solution(board):
     """Return the list of lists representation of a solved chessboard."""
     solution = []
@@ -139,4 +138,3 @@ if __name__ == "__main__":
     solutions = recursive_solve(board, 0, 0, [])
     for sol in solutions:
         print(sol)
-
