@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """Defines a matrix multiplication function."""
 
+
 def matrix_mul(m_a, m_b):
     """Multiply two matrices.
 
     Args:
         m_a (list of lists of ints/floats): The first matrix.
         m_b (list of lists of ints/floats): The second matrix.
-
     Raises:
         TypeError: If either m_a or m_b is not a list of lists of ints/floats.
         TypeError: If either m_a or m_b is empty.
@@ -16,6 +16,7 @@ def matrix_mul(m_a, m_b):
     Returns:
         A new matrix representing the multiplication of m_a by m_b.
     """
+
     if m_a == [] or m_a == [[]]:
         raise ValueError("m_a can't be empty")
     if m_b == [] or m_b == [[]]:
@@ -32,11 +33,12 @@ def matrix_mul(m_a, m_b):
         raise TypeError("m_b must be a list of lists")
 
     if not all((isinstance(ele, int) or isinstance(ele, float))
-            for ele in [num for row in m_a for num in row]):
+               for ele in [num for row in m_a for num in row]):
         raise TypeError("m_a should contain only integers or floats")
     if not all((isinstance(ele, int) or isinstance(ele, float))
-            for ele in [num for row in m_b for num in row]):
+               for ele in [num for row in m_b for num in row]):
         raise TypeError("m_b should contain only integers or floats")
+
     if not all(len(row) == len(m_a[0]) for row in m_a):
         raise TypeError("each row of m_a must should be of the same size")
     if not all(len(row) == len(m_b[0]) for row in m_b):
@@ -52,14 +54,14 @@ def matrix_mul(m_a, m_b):
             new_row.append(m_b[c][r])
         inverted_b.append(new_row)
 
-        new_matrix = []
-        for row in m_a:
-            new_row = []
-            for col in inverted_b:
-                prod = 0
-                for i in range(len(inverted_b[0])):
-                    prod += row[i] * col[i]
-                new_row.append(prod)
-            new_matrix.append(new_row)
+    new_matrix = []
+    for row in m_a:
+        new_row = []
+        for col in inverted_b:
+            prod = 0
+            for i in range(len(inverted_b[0])):
+                prod += row[i] * col[i]
+            new_row.append(prod)
+        new_matrix.append(new_row)
 
-        return new_matrix
+    return new_matrix
